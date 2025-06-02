@@ -176,6 +176,15 @@
 
                 orthoCamera.position.set(0, 1, 5);
                 orthoCamera.lookAt(0, 1, 0);
+                window.addEventListneer("message", (event) => {
+                    if (event.data === "toggleCameraView") {
+                        const toggle = document.getElementById("cameraToggle");
+                        if (toggle && !toggle.checked) {
+                            toggle.checked = true;
+                            toggle.dispatchEvent(new Event('change'));
+                        }
+                    }
+                });
 
                 activeCamera = perspectiveCamera;
 
